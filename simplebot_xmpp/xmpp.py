@@ -44,7 +44,7 @@ class XMPPBot(ClientXMPP):
             return
 
         if msg["type"] == "groupchat":
-            self.dbot.logger.debug("Incomming XMPP message: %r", msg)
+            self.dbot.logger.debug("Incoming XMPP message: %r", msg)
             for gid in self.db.get_cchats(msg["mucroom"]):
                 self.dbot.get_chat(gid).send_text(
                     "{}[xmpp]:\n{}".format(nick, msg["body"])
